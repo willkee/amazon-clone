@@ -14,23 +14,23 @@ module.exports = (sequelize, DataTypes) => {
 	User.init(
 		{
 			firstName: {
-				type: DataTypes.STRING,
+				type: DataTypes.STRING(50),
 				allowNull: false,
 			},
 			lastName: {
-				type: DataTypes.STRING,
+				type: DataTypes.STRING(50),
 				allowNull: false,
 			},
 			email: {
-				type: DataTypes.STRING,
+				type: DataTypes.STRING(256),
 				allowNull: false,
 			},
 			hashedPassword: {
-				type: DataTypes.STRING,
+				type: DataTypes.STRING.BINARY,
 				allowNull: false,
 			},
 			type: {
-				type: DataTypes.STRING,
+				type: DataTypes.STRING(20),
 				allowNull: false,
 			},
 		},
