@@ -2,9 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
-import userReducer from "./users";
+import sessionReducer from "./session";
 
-const reducer = { users: userReducer };
+const reducer = { session: sessionReducer };
 
 const store = configureStore({
 	reducer,
