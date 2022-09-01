@@ -1,13 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-router.all("*", async (req, res, next) => {
-	console.log("SADASDASD");
-	next();
-});
+const sessionRouter = require("./session");
 
-router.get("/test", async (req, res) => {
-	res.json({ test: "ASHDKJASHDKJASD" });
-});
+router.use("/session", sessionRouter);
 
 module.exports = router;

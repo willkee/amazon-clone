@@ -9,7 +9,7 @@ const retrievedUsers = (data) => ({
 
 // thunks
 export const getUsers = () => async (dispatch) => {
-	// const res = await fetch(`/api/users`);
+	// const res = await fetch(`/api/session`);
 	// if (res.ok) {
 	// 	const data = await res.json();
 	// 	await dispatch(retrievedUsers(data));
