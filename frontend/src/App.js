@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getUsers } from "./store/users";
+
+import Nav from "./components/Navigation";
 
 function App() {
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getUsers());
-	}, [dispatch]);
+	useEffect(() => {}, [dispatch]);
 
 	return (
 		<div className="App">
+			<Nav />
 			<header className="App-header">Testing</header>
 			<div>dsfsdfsdf</div>
 		</div>

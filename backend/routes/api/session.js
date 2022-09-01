@@ -1,4 +1,6 @@
 const express = require("express");
+const { check } = require("express-validator");
+
 const asyncHandler = require("express-async-handler");
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, restoreUser } = require("../../utils/auth");
@@ -26,7 +28,10 @@ router.post(
 	asyncHandler(async (req, res, next) => {
 		const { email, password } = req.body;
 
-		const user = await User.findOne({ where: { email } });
+		const user = await User.scope("loginAction").findOne({
+			where: { email },
+		});
+		console.log(user, "user \n\n\n\n");
 
 		const pwMatch = bcrypt.compareSync(
 			password,
