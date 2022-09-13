@@ -1,18 +1,28 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import Nav from "./components/Navigation";
+import Component from "./components";
+import { getProducts } from "./store/products";
 
 function App() {
+	const [isLoaded, setIsLoaded] = useState(false);
 	const dispatch = useDispatch();
 
-	useEffect(() => {}, [dispatch]);
+	useEffect(() => {
+		dispatch(getProducts()).then(() => setIsLoaded(true));
+	}, [dispatch]);
+
+	const products = useSelector((state) => Object.values(state.products));
 
 	return (
 		<div className="App">
-			<Nav />
-			<header className="App-header">Testing</header>
-			<div>dsfsdfsdf</div>
+			{isLoaded && (
+				<>
+					<Component.Nav />
+					<header className="App-header">Testing</header>
+					<Component.AllProducts products={products} />
+				</>
+			)}
 		</div>
 	);
 }
