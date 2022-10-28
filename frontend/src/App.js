@@ -13,12 +13,13 @@ function App() {
 	}, [dispatch]);
 
 	const products = useSelector((state) => Object.values(state.products));
+	const currentUser = useSelector((state) => state.session.user);
 
 	return (
 		<div className="App">
 			{isLoaded && (
 				<>
-					<Component.Nav />
+					<Component.Nav currentUser={currentUser} />
 					<header className="App-header">Testing</header>
 					<Component.AllProducts products={products} />
 				</>

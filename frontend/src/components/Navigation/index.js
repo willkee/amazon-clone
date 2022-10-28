@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login, logout } from "../../store/session";
+import styles from "./Navigation.module.css";
 
-export default function Nav() {
+export default function Nav({ currentUser }) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
@@ -29,8 +30,22 @@ export default function Nav() {
 	};
 
 	return (
-		<div>
-			<div>
+		<div className={styles.container}>
+			<div className={styles.nav_top}>
+				<div className={styles.nav_left}>
+					<div className={styles.logo}></div>
+					<div className={styles.location}>
+						<div className={styles.pin}></div>
+						<div className={styles.hello_address}>
+							<span>Hello</span>
+							<span>Select your address</span>
+						</div>
+					</div>
+				</div>
+				<div className={styles.search}>Search</div>
+			</div>
+			<div className={styles.nav_links}>Nav Links</div>
+			<div className={styles.nav_other}>
 				<form onSubmit={handleSubmit}>
 					<div>
 						{errors &&
@@ -55,7 +70,14 @@ export default function Nav() {
 					</label>
 					<button type="submit">Login</button>
 				</form>
-				<button onClick={handleLogout}>Logout</button>
+				{currentUser ? (
+					<div>
+						<div>Welcome Back {currentUser.firstName}!</div>
+						<button onClick={handleLogout}>Logout</button>
+					</div>
+				) : (
+					<div>Please Login</div>
+				)}
 			</div>
 		</div>
 	);
