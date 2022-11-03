@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { login, logout } from "../../store/session";
 import styles from "./Navigation.module.css";
 
+import Banner from "./Banner";
+
 export default function Nav({ currentUser }) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -31,19 +33,7 @@ export default function Nav({ currentUser }) {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.nav_top}>
-				<div className={styles.nav_left}>
-					<div className={styles.logo}></div>
-					<div className={styles.location}>
-						<div className={styles.pin}></div>
-						<div className={styles.hello_address}>
-							<span>Hello</span>
-							<span>Select your address</span>
-						</div>
-					</div>
-				</div>
-				<div className={styles.search}>Search</div>
-			</div>
+			<Banner />
 			<div className={styles.nav_links}>Nav Links</div>
 			<div className={styles.nav_other}>
 				<form onSubmit={handleSubmit}>

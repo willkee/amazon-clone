@@ -1,60 +1,10 @@
-.container * {
-	color: white;
-	/* font-family: "Amazon Ember Medium", Arial, sans-serif; */
-}
-
-.nav_top {
-	height: 60px;
-	background-color: #131921;
-	padding: 5px;
-	display: flex;
-}
-
-.nav_left {
-	display: flex;
-}
-
-.logo {
-	background-image: url(https://m.media-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png);
-	background-position: 0 410px;
-	width: 120px;
-	height: 50px;
-}
-
-.pin {
-	background-image: url(https://m.media-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png);
-	background-position: -70px -378px;
-	width: 22px;
-	height: 22px;
-	align-self: flex-end;
-	/* border: 1px solid white; */
-}
-
-.location {
-	display: flex;
-	align-items: center;
-	padding: 7px 2px 7px 2px;
-}
-
-.hello_address {
+.container {
+	min-width: 1000px;
 	display: flex;
 	flex-direction: column;
 }
-.hello_address span:first-child {
-	font-size: 12px;
-	line-height: 14px;
-}
-
-.hello_address span:last-child {
-	font-size: 14px;
-	line-height: 15px;
-	font-weight: 700;
-}
-
-.logo:hover,
-.location:hover {
-	border: 1px solid white;
-	cursor: pointer;
+.container * {
+	color: white;
 }
 
 .nav_links {
