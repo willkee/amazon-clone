@@ -42,7 +42,15 @@ export default function Nav({ currentUser }) {
 						</div>
 					</div>
 				</div>
-				<div className={styles.search}>Search</div>
+				<div className={styles.search}>
+					<div className={styles.search_left}>All</div>
+					<div></div>
+					<div className={styles.search_right}>Go</div>
+				</div>
+				<div className={styles.lang}>
+					<img src="/assets/us_flag.png" alt="US"></img>
+					<span>EN</span>
+				</div>
 			</div>
 			<div className={styles.nav_links}>Nav Links</div>
 			<div className={styles.nav_other}>

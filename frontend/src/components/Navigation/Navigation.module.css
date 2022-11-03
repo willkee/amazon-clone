@@ -1,6 +1,10 @@
+.container {
+	min-width: 1000px;
+	display: flex;
+	flex-direction: column;
+}
 .container * {
 	color: white;
-	/* font-family: "Amazon Ember Medium", Arial, sans-serif; */
 }
 
 .nav_top {
@@ -12,6 +16,7 @@
 
 .nav_left {
 	display: flex;
+	margin-right: 5px;
 }
 
 .logo {
@@ -34,11 +39,13 @@
 	display: flex;
 	align-items: center;
 	padding: 7px 2px 7px 2px;
+	margin-right: 5px;
 }
 
 .hello_address {
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 }
 .hello_address span:first-child {
 	font-size: 12px;
@@ -55,6 +62,53 @@
 .location:hover {
 	border: 1px solid white;
 	cursor: pointer;
+}
+
+.search {
+	height: 40px;
+	background-color: white;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between;
+	flex: 1 1 0px;
+	align-self: center;
+	margin-right: 5px;
+}
+
+.search * {
+	color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search_left {
+	background-color: #f3f3f3;
+	border-radius: 4px 0 0 4px;
+	min-width: 40px;
+	font-size: 12px;
+}
+
+.search_right {
+	width: 45px;
+	height: auto;
+	background-color: #febd69;
+	border-radius: 0 4px 4px 0;
+	font-size: 12px;
+}
+
+.lang {
+	display: flex;
+	position: relative;
+	align-items: center;
+	padding: 5px;
+}
+.lang img {
+	width: 23px;
+	margin-right: 5px;
+}
+.lang span {
+	font-weight: 700;
 }
 
 .nav_links {
