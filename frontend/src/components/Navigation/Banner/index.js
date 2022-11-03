@@ -7,7 +7,7 @@ export default function Banner() {
 			<div className={styles.nav_left}>
 				<img
 					className={styles.logo}
-					src="/assets/amazon_icon.png"
+					src="/assets/awazon_logo.png"
 					alt="amazon logo"
 				/>
 				<div></div>
@@ -25,7 +25,9 @@ export default function Banner() {
 			</div>
 			<div className={styles.search}>
 				<div className={styles.search_left}>All</div>
-				<div></div>
+				<div className={styles.input_container}>
+					<input className={styles.nav_search_input} />
+				</div>
 
 				<div className={styles.search_right}>
 					<img src="/assets/search_mag_glass.png" alt="search icon" />
@@ -35,12 +37,13 @@ export default function Banner() {
 				<img src="/assets/us_flag.png" alt="US"></img>
 				<span>EN</span>
 			</div>
-			<div>
+			<div className={styles.hello_profile}>
 				<div>Hello, sign in</div>
 				<div>Account & Lists</div>
 			</div>
-			<div>
-				<div>Returns & Orders</div>
+			<div className={styles.returns_orders}>
+				<div>Returns</div>
+				<div>& Orders</div>
 			</div>
 			<div className={styles.cart_container}>
 				<img src="/assets/cart_icon.png" alt="cart icon" />
