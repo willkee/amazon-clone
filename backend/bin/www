@@ -2,7 +2,7 @@
 
 const { port } = require("../config");
 
-const app = require("../app");
+const { app, startServer } = require("../server");
 const db = require("../db/models");
 
 // Check the database connection before starting the app
@@ -13,6 +13,7 @@ db.sequelize
 			"Database connection success! Sequelize is ready to use..."
 		);
 
+		startServer();
 		// Start listening for connections
 		app.listen(port, () => console.log(`Listening on port ${port}...`));
 	})
