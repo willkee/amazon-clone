@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login, logout } from "../../store/session";
+import styles from "./Navigation.module.css";
+
+import Banner from "./Banner";
+
+/*
+export default function Nav({ currentUser }) {
+*/
 
 export default function Nav() {
 	// const [email, setEmail] = useState("");
@@ -29,9 +36,11 @@ export default function Nav() {
 	// };
 
 	return (
-		<div>
-			<div>
-				{/* <form onSubmit={handleSubmit}>
+		<div className={styles.container}>
+			<Banner />
+			<div className={styles.nav_links}>Nav Links</div>
+			<div className={styles.nav_other}>
+				<form onSubmit={handleSubmit}>
 					<div>
 						{errors &&
 							errors.map((err, i) => <div key={i}>{err}</div>)}
@@ -54,8 +63,15 @@ export default function Nav() {
 						></input>
 					</label>
 					<button type="submit">Login</button>
-				</form> */}
-				{/* <button onClick={handleLogout}>Logout</button> */}
+				</form>
+				{currentUser ? (
+					<div>
+						<div>Welcome Back {currentUser.firstName}!</div>
+						<button onClick={handleLogout}>Logout</button>
+					</div>
+				) : (
+					<div>Please Login</div>
+				)}
 			</div>
 		</div>
 	);

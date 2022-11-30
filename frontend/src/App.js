@@ -17,12 +17,15 @@ function App() {
 
 	// const products = useSelector((state) => Object.values(state.products));
 
+	// const products = useSelector((state) => Object.values(state.products));
+	// const currentUser = useSelector((state) => state.session.user);
 	if (error) return `${error}`;
 
 	return (
 		<div className="App">
 			{loading ? null : (
 				<>
+					{/* <Component.Nav currentUser={currentUser} /> */}
 					<div>
 						{data &&
 							data.users.map(
