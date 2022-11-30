@@ -1,26 +1,44 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useEffect, useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 
 import Component from "./components";
-import { getProducts } from "./store/products";
+
+import { GET_USERS } from "./apollo/users";
+import { useQuery } from "@apollo/client";
+// import { getProducts } from "./store/products";
 
 function App() {
-	const [isLoaded, setIsLoaded] = useState(false);
-	const dispatch = useDispatch();
+	const { loading, error, data } = useQuery(GET_USERS);
+	// const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getProducts()).then(() => setIsLoaded(true));
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	// dispatch(getProducts()).then(() => setIsLoaded(true));
+	// }, [dispatch]);
 
-	const products = useSelector((state) => Object.values(state.products));
+	// const products = useSelector((state) => Object.values(state.products));
+
+	if (error) return `${error}`;
 
 	return (
 		<div className="App">
-			{isLoaded && (
+			{loading ? null : (
 				<>
+					<div>
+						{data &&
+							data.users.map(
+								({ id, firstName, lastName, email, type }) => (
+									<div key={id}>
+										<div>{firstName}</div>
+										<div>{lastName}</div>
+										<div>{email}</div>
+										<div>{type}</div>
+									</div>
+								)
+							)}
+					</div>
 					<Component.Nav />
 					<header className="App-header">Testing</header>
-					<Component.AllProducts products={products} />
+					{/* <Component.AllProducts products={products} /> */}
 				</>
 			)}
 		</div>
