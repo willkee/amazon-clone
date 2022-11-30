@@ -5,31 +5,35 @@ import styles from "./Navigation.module.css";
 
 import Banner from "./Banner";
 
+/*
 export default function Nav({ currentUser }) {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [errors, setErrors] = useState([]);
+*/
 
-	const dispatch = useDispatch();
+export default function Nav() {
+	// const [email, setEmail] = useState("");
+	// const [password, setPassword] = useState("");
+	// const [errors, setErrors] = useState([]);
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		setErrors([]);
+	// const dispatch = useDispatch();
 
-		try {
-			await dispatch(login(email, password));
-			setEmail("");
-			setPassword("");
-		} catch (err) {
-			const data = await err.json();
-			if (data && data.errors) setErrors(data.errors);
-		}
-	};
+	// const handleSubmit = async (e) => {
+	// 	e.preventDefault();
+	// 	setErrors([]);
 
-	const handleLogout = async (e) => {
-		e.preventDefault();
-		await dispatch(logout());
-	};
+	// 	try {
+	// 		await dispatch(login(email, password));
+	// 		setEmail("");
+	// 		setPassword("");
+	// 	} catch (err) {
+	// 		const data = await err.json();
+	// 		if (data && data.errors) setErrors(data.errors);
+	// 	}
+	// };
+
+	// const handleLogout = async (e) => {
+	// 	e.preventDefault();
+	// 	await dispatch(logout());
+	// };
 
 	return (
 		<div className={styles.container}>
