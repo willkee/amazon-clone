@@ -1,0 +1,11 @@
+type Query {
+	addressesByUserId(userId: Int!): [Address]
+}
+
+type Address {
+	userId: Int!
+	streetAddress1: String!
+	streetAddress2: String
+	city: String!
+	state: String!
+}
