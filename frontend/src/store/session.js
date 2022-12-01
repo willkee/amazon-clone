@@ -17,6 +17,7 @@ const removeUser = () => ({
 // thunks
 
 export const login = (email, password) => async (dispatch) => {
+	console.log(email, password, "redux");
 	const res = await csrfFetch("/api/session", {
 		method: "POST",
 		body: JSON.stringify({ email, password }),

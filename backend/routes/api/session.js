@@ -28,6 +28,8 @@ router.post(
 	asyncHandler(async (req, res, next) => {
 		const { email, password } = req.body;
 
+		console.log("BACKEND", email, password);
+
 		const user = await User.scope("loginAction").findOne({
 			where: { email },
 		});
