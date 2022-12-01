@@ -6,9 +6,16 @@ const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const { ValidationError } = require("sequelize");
 
+const { ApolloServer } = require("apollo-server-express");
+
 const routes = require("./routes");
 const { environment } = require("./config");
 const isProduction = environment === "production";
+
+// GraphQL
+const typeDefs = require("./graphql/schema");
+const resolvers = require("./graphql/resolvers");
+//
 
 const app = express();
 
@@ -42,6 +49,9 @@ app.use(
 );
 
 app.use(routes); // Connect all the routes
+
+const server = new ApolloServer({ resolvers, typeDefs });
+server.start().then(() => server.applyMiddleware({ app }));
 
 // Catch unhandled requests and forward to error handler.
 app.use((_req, _res, next) => {
