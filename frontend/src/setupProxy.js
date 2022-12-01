@@ -8,4 +8,12 @@ module.exports = function (app) {
 			changeOrigin: true,
 		})
 	);
+
+	app.use(
+		"/api/graphql",
+		createProxyMiddleware({
+			target: "http://localhost:5500",
+			changeOrigin: true,
+		})
+	);
 };

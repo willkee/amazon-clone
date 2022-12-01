@@ -6,15 +6,20 @@ const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const { ValidationError } = require("sequelize");
 
-const { ApolloServer } = require("apollo-server-express");
-
 const routes = require("./routes");
 const { environment } = require("./config");
 const isProduction = environment === "production";
 
 // GraphQL
-const typeDefs = require("./graphql/schema");
-const resolvers = require("./graphql/resolvers");
+const { graphqlHTTP } = require("express-graphql");
+const { loadFilesSync } = require("@graphql-tools/load-files");
+const { makeExecutableSchema } = require("@graphql-tools/schema");
+
+// Match any files with the .graphql extension
+const typeDefs = loadFilesSync("**/*", { extensions: ["graphql"] });
+// Match any files with the .resolvers.js extension
+const resolvers = loadFilesSync("**/*", { extensions: ["resolvers.js"] });
+const schema = makeExecutableSchema({ typeDefs, resolvers });
 //
 
 const app = express();
@@ -48,10 +53,8 @@ app.use(
 	})
 );
 
+app.use("/api/graphql", graphqlHTTP({ schema, graphiql: true }));
 app.use(routes); // Connect all the routes
-
-const server = new ApolloServer({ resolvers, typeDefs });
-server.start().then(() => server.applyMiddleware({ app }));
 
 // Catch unhandled requests and forward to error handler.
 app.use((_req, _res, next) => {
