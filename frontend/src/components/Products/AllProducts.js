@@ -9,7 +9,11 @@ export default function AllProducts({ products }) {
 						<h3>{product.name}</h3>
 						<div>{product.shortDesc}</div>
 						<div>${product.price}</div>
-						<img src={product.imageUrl} alt="product img"></img>
+						<img
+							src={product.imageUrl}
+							crossorigin="anonymous"
+							alt="product img"
+						></img>
 					</div>
 				))}
 			</div>
