@@ -12,7 +12,7 @@ module.exports = {
 					longDesc:
 						"This is a particularly large gummy bear. It is good for snacking.",
 					imageUrl:
-						"https://www.candywarehouse.com/item-images/130818-01_giant-red-gummy-bear.jpg",
+						"https://upload.wikimedia.org/wikipedia/commons/a/a6/Oursons_g%C3%A9latine_march%C3%A9_Rouffignac.jpg",
 					price: 99.99,
 				},
 				{

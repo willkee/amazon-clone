@@ -37,7 +37,9 @@ function App() {
 			{isLoaded && (
 				<>
 					<Component.Nav currentUser={currentUser} />
-					<header className="App-header">Testing</header>
+					<header className="App-header">
+						PROJECT IN DEVELOPMENT
+					</header>
 					<Component.AllProducts products={products} />
 				</>
 			)}
