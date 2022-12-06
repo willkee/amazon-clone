@@ -10,6 +10,18 @@ const routes = require("./routes");
 const { environment } = require("./config");
 const isProduction = environment === "production";
 
+// GraphQL
+const { graphqlHTTP } = require("express-graphql");
+const { loadFilesSync } = require("@graphql-tools/load-files");
+const { makeExecutableSchema } = require("@graphql-tools/schema");
+
+// Match any files with the .graphql extension
+const typeDefs = loadFilesSync("**/*", { extensions: ["graphql"] });
+// Match any files with the .resolvers.js extension
+const resolvers = loadFilesSync("**/*", { extensions: ["resolvers.js"] });
+const schema = makeExecutableSchema({ typeDefs, resolvers });
+//
+
 const app = express();
 
 app.use(morgan("dev"));
@@ -41,6 +53,7 @@ app.use(
 	})
 );
 
+app.use("/api/graphql", graphqlHTTP({ schema }));
 app.use(routes); // Connect all the routes
 
 // Catch unhandled requests and forward to error handler.
