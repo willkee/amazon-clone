@@ -53,7 +53,7 @@ app.use(
 	})
 );
 
-app.use("/api/graphql", graphqlHTTP({ schema, graphiql: true }));
+app.use("/api/graphql", graphqlHTTP({ schema }));
 app.use(routes); // Connect all the routes
 
 // Catch unhandled requests and forward to error handler.
