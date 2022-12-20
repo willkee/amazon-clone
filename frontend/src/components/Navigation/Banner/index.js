@@ -1,7 +1,13 @@
+import { useState } from "react";
+import ProfileHover from "./ProfileHover";
 import styles from "./Banner.module.css";
 
 export default function Banner() {
-	//
+	const [inHover, setInHover] = useState(false);
+
+	const handleMouseOver = () => setInHover(true);
+	const handleMouseLeave = () => setInHover(false);
+
 	return (
 		<div className={styles.nav_top}>
 			<div className={styles.nav_left}>
@@ -37,9 +43,14 @@ export default function Banner() {
 				<img src="/assets/us_flag.png" alt="US"></img>
 				<span>EN</span>
 			</div>
-			<div className={styles.hello_profile}>
+			<div
+				className={styles.hello_profile}
+				onMouseOver={handleMouseOver}
+				onMouseLeave={handleMouseLeave}
+			>
 				<div>Hello, sign in</div>
 				<div>Account & Lists</div>
+				<ProfileHover inHover={inHover} />
 			</div>
 			<div className={styles.returns_orders}>
 				<div>Returns</div>

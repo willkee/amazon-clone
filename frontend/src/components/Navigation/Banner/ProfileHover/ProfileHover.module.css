@@ -1,0 +1,27 @@
+.container {
+	position: absolute;
+	background-color: rgb(198, 198, 198);
+	color: black;
+	top: 40px;
+	right: 0;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	display: flex;
+	flex-basis: 0;
+	animation: dropdown 0.4s ease-in-out;
+}
+
+.container_hidden {
+	display: none;
+}
+
+@keyframes dropdown {
+	0% {
+		transform: translateY(-15px);
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+	}
+}
