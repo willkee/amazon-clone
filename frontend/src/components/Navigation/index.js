@@ -25,10 +25,9 @@ export default function Nav({ currentUser }) {
 						<button onClick={handleLogout}>Logout</button>
 					</div>
 				) : (
-					<div>Please Login</div>
+					<Login />
 				)}
 			</div>
-			<Login />
 		</div>
 	);
 }

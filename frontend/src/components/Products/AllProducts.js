@@ -11,7 +11,7 @@ export default function AllProducts({ products }) {
 						<div>${product.price}</div>
 						<img
 							src={product.imageUrl}
-							crossorigin="anonymous"
+							crossOrigin="anonymous"
 							alt="product img"
 						></img>
 					</div>
